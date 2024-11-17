@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">sendero</string>
+    <string name="title_activity_main">sendero</string>
+    <string name="package_name">ionic.sendero</string>
+    <string name="custom_url_scheme">ionic.sendero</string>
+</resources>
