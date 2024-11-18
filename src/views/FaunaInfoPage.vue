@@ -9,12 +9,6 @@
         </ion-toolbar>
       </ion-header>
 
-      
-      <ion-content>
-        <div id="container">
-
-        </div>
-      </ion-content>
     </ion-page>
   </template>
   
@@ -23,5 +17,5 @@
   </script>
   
   <style scoped>
-  
+
   </style>

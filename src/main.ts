@@ -38,6 +38,12 @@ import '@ionic/vue/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+// Registra los componentes nativos
+defineCustomElements(window);
+
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
