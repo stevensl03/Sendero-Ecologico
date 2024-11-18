@@ -1,11 +1,18 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
 :root {
-    --ion-color-primary: #3880ff; /* Color azul predeterminado */
-    --ion-color-primary-rgb: 56, 128, 255;
-    --ion-color-success: #10dc60; /* Verde */
-    --ion-color-success-rgb: 16, 220, 96;
-    --ion-color-primary-contrast: #ffffff;
-    --ion-color-success-contrast: #ffffff;
-  }
-  
+    --ion-color-primary: #3880ff; /* Color azul primario */
+    --ion-color-primary-contrast: #ffffff; /* Contraste de color primario */
+    --ion-color-secondary: #3dc2ff; /* Color secundario */
+    --ion-color-success: #10dc60; /* Color de éxito */
+    --ion-color-warning: #ff9800; /* Color de advertencia */
+    --ion-color-danger: #f53d3d; /* Color de peligro */
+    --ion-color-dark: #222428; /* Color oscuro para texto */
+    --ion-color-light: #f4f5f8; /* Color claro para fondo */
+    --ion-color-background: #ffffff; /* Fondo blanco */
+    --ion-button-background: #3880ff; /* Fondo de botón primario */
+    --ion-text-color: #000000; /* Color de texto general */
+    --ion-input-background: #f4f5f8; /* Fondo de los campos de entrada */
+    --ion-toolbar-background: #e2e2e2; /* Fondo de la barra de herramientas */
+    --ion-item-background: #f4f5f8; /* Fondo de los elementos de lista */
+}

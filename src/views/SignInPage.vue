@@ -2,8 +2,12 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <router-link to="/home" id="BackButton">Atrás</router-link>
-        <ion-title>Iniciar Sesión</ion-title>
+        <ion-grid>
+          <ion-row id = "titulo">
+            <router-link to="/home" id="BackButton" >Atrás</router-link>
+            <ion-title>Iniciar Sesión</ion-title>
+          </ion-row>
+        </ion-grid>
       </ion-toolbar>
     </ion-header>
 
@@ -26,24 +30,31 @@
               </div>
               <!-- Título -->
               <h1>Bienvenido al Sendero Ecológico</h1>
+
               <!-- Formulario -->
-              <ion-item>
-                <ion-label position="stacked">Nombre de Usuario</ion-label>
-                <ion-input placeholder="Escribe tu nombre"></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-label position="stacked">Contraseña</ion-label>
-                <ion-input type="password" placeholder="Escribe tu contraseña"></ion-input>
-              </ion-item>
-              <!-- Botones -->
-              <div class="buttons-container ion-align-items-center ion-justify-content-center">
-                <ion-button expand="block" color="success" class="custom-button">
-                  Iniciar Sesión
-                </ion-button>
-                <ion-button expand="block" color="primary" fill="outline" class="custom-button">
-                  Iniciar como Invitado
-                </ion-button>
-              </div>
+              <form @submit.prevent="onSubmit">
+                <ion-item>
+                  <ion-label position="stacked">Nombre de Usuario</ion-label>
+                  <ion-input type="text" placeholder="Escribe tu nombre" required v-model="user"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="stacked">Contraseña</ion-label>
+                  <ion-input type="password" placeholder="Escribe tu contraseña" required v-model="password"></ion-input>
+                </ion-item>
+                <!-- Botones -->
+                <div class="buttons-container ion-align-items-center ion-justify-content-center">
+                  <ion-button type="submit" expand="block" color="success" class="custom-button">
+                    Iniciar Sesión
+                  </ion-button>
+                  <ion-button expand="block" color="primary" fill="outline" class="custom-button" ion-button @click="presentAlert">
+                    Iniciar como Invitado
+                  </ion-button>
+                  
+                  <p> ¿No tienes una cuenta?  <router-link to="/register" id="goRegister" >  Inscribirse  </router-link></p>
+                 
+                </div>
+              </form>
+
             </ion-card>
           </ion-col>
         </ion-row>
@@ -53,8 +64,53 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonItem, IonLabel, IonInput, IonButton } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonItem, IonLabel, IonInput, IonButton, IonAlert, alertController} from '@ionic/vue';
+import { defineComponent, ref, reactive } from 'vue';
+
+const user = ref();
+const password = ref();
+
+
+const presentAlert = async () => {
+    const alert = await alertController.create({
+      header: 'Ingresar como Invitado',
+      subHeader: 'Invalido',
+      message: 'Temporalmente no disponible',
+      buttons: ['Bueno'],
+    });
+
+    await alert.present();
+  };
+
+
+
+const onSubmit = async() =>{
+  if(user.value == "admin" && password.value == 123){
+    const alert = await alertController.create({
+      header: 'Iniciar seción',
+      subHeader: 'Acceso',
+      message: 'Inicio de sesión valido',
+      buttons: ['Bueno'],
+    });
+    await alert.present();
+
+    const notificationsEnabled = ref(true);
+
+
+
+
+  }else{
+    const alert = await alertController.create({
+      header: 'Iniciar sesión',
+      subHeader: 'Denegado',
+      message: 'Inicio de sesión invalido',
+      buttons: ['Bueno'],
+    });
+    await alert.present();
+  }
+      user.value = '';
+      password.value = '';
+}
 
 </script>
 
@@ -102,12 +158,21 @@ h1 {
 /* Botón de navegación "Atrás" */
 #BackButton {
   text-decoration: none;
-  color: var(--ion-color-primary);
-  font-size: 16px;
+  color: white;
+  font-size: 20px;
   margin-left: 10px;
+  padding: 2px;
+  background-color: var(--ion-color-primary);
+  border: solid var(--ion-color-primary);
+  border-radius: 10%;
 }
 ion-button {
   touch-action: auto;
   pointer-events: auto;
+}
+
+#titulo ion-title{
+
+  text-align: center;
 }
 </style>
