@@ -1,18 +1,34 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
 :root {
-    --ion-color-primary: #3880ff; /* Color azul primario */
-    --ion-color-primary-contrast: #ffffff; /* Contraste de color primario */
-    --ion-color-secondary: #3dc2ff; /* Color secundario */
-    --ion-color-success: #10dc60; /* Color de éxito */
-    --ion-color-warning: #ff9800; /* Color de advertencia */
-    --ion-color-danger: #f53d3d; /* Color de peligro */
-    --ion-color-dark: #222428; /* Color oscuro para texto */
-    --ion-color-light: #f4f5f8; /* Color claro para fondo */
-    --ion-color-background: #ffffff; /* Fondo blanco */
-    --ion-button-background: #3880ff; /* Fondo de botón primario */
-    --ion-text-color: #000000; /* Color de texto general */
-    --ion-input-background: #ffffff; /* Fondo de los campos de entrada */
-    --ion-toolbar-background: #a39e9e; /* Fondo de la barra de herramientas */
-    --ion-item-background: hsl(0, 0%, 95%); /* Fondo de los elementos de lista */
-}
+    /* Colores principales */
+    --ion-color-primary: #4a90e2; /* Azul moderno */
+    --ion-color-primary-contrast: #ffffff; /* Contraste blanco */
+    --ion-color-secondary: #50e3c2; /* Verde agua */
+    --ion-color-tertiary: #ff7f50; /* Coral */
+    --ion-color-success: #28a745; /* Verde éxito */
+    --ion-color-warning: #ffc107; /* Amarillo advertencia */
+    --ion-color-danger: #e63946; /* Rojo vibrante */
+    --ion-color-dark: #2c3e50; /* Azul oscuro para texto */
+    --ion-color-medium: #a0a0a0; /* Neutro intermedio */
+    --ion-color-light: #f9f9f9; /* Fondo claro */
+  
+    /* Fondo y texto */
+    --ion-color-background: #f5f6fa; /* Gris claro para fondo general */
+    --ion-text-color: #4a4a4a; /* Color principal del texto */
+    --ion-toolbar-background: #4a90e2; /* Barra de herramientas en azul primario */
+    --ion-toolbar-color: #ffffff; /* Color de texto en la barra */
+    
+    /* Botones */
+    --ion-button-background: var(--ion-color-primary); /* Fondo de botones */
+    --ion-button-color: var(--ion-color-primary-contrast); /* Color del texto en botones */
+  
+    /* Input y elementos */
+    --ion-input-background: #ffffff; /* Fondo blanco en inputs */
+    --ion-item-background: #ffffff; /* Fondo blanco en elementos de lista */
+    --ion-item-color: #4a4a4a; /* Texto principal en elementos */
+    --ion-item-border-color: #dcdde1; /* Borde sutil para elementos */
+  
+    /* Sombras y bordes */
+    --ion-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para botones y tarjetas */
+    --ion-border-radius: 12px; /* Bordes redondeados */
+  }
+  
