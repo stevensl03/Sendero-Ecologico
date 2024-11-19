@@ -26,10 +26,23 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import ('../views/ProfilePage.vue')
+  },
+
+  {
     path: '/trailInfo',
     name: 'TrailInfo',
     component: () => import ('../views/TrailInfoPage.vue')
   },
+
+  {
+    path: '/floraInfo',
+    name: 'FloraInfo',
+    component: () => import ('../views/FloraInfoPage.vue')
+  },
+
   {
     path: '/faunaInfo',
     name: 'FaunaInfo',

@@ -14,7 +14,7 @@
                 <!-- Imagen del logo -->
                 <ion-row class="ion-justify-content-center ion-align-items-center">
                     <ion-col size="12" size-md="6" class="ion-text-center">
-                        <img src="../assets/lg-26-logo-unillanos.png" alt="Logo Unillanos" id="img">
+                        <img src="/public/assets/lg-26-logo-unillanos.png" alt="Logo Unillanos" id="img">
                     </ion-col>
                 </ion-row>
 

@@ -4,7 +4,7 @@
       <ion-toolbar>
         <ion-grid>
           <ion-row id = "titulo">
-            <router-link to="/home" id="BackButton" >Atrás</router-link>
+            <router-link to="/home" id="BackButton" >Inicio</router-link>
             <ion-title>Iniciar Sesión</ion-title>
           </ion-row>
         </ion-grid>
@@ -16,7 +16,7 @@
         <!-- Imagen del logo -->
         <ion-row class="ion-justify-content-center ion-align-items-center">
           <ion-col size="12" size-md="6" class="ion-text-center">
-            <img src="../assets/lg-26-logo-unillanos.png" alt="Logo Unillanos" id="img">
+            <img src="/public/assets/lg-26-logo-unillanos.png" alt="Logo Unillanos" id="img">
           </ion-col>
         </ion-row>
 
@@ -65,53 +65,44 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonItem, IonLabel, IonInput, IonButton, IonAlert, alertController} from '@ionic/vue';
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, ref, reactive} from 'vue';
+import { useAuthStore } from '../stores/auth'
+import { defineStore } from 'pinia';
+import { useRouter } from 'vue-router';
 
-const user = ref();
-const password = ref();
+const user = ref('');
+const password = ref('');
+const authStore = useAuthStore();
+const router = useRouter();
 
-
-const presentAlert = async () => {
+const onSubmit = async () => {
+  if (user.value === 'admin' && password.value === '123') {
     const alert = await alertController.create({
-      header: 'Ingresar como Invitado',
-      subHeader: 'Invalido',
-      message: 'Temporalmente no disponible',
-      buttons: ['Bueno'],
-    });
-
-    await alert.present();
-  };
-
-
-
-const onSubmit = async() =>{
-  if(user.value == "admin" && password.value == 123){
-    const alert = await alertController.create({
-      header: 'Iniciar seción',
+      header: 'Iniciar sesión',
       subHeader: 'Acceso',
-      message: 'Inicio de sesión valido',
+      message: 'Inicio de sesión válido',
       buttons: ['Bueno'],
     });
     await alert.present();
 
-    const notificationsEnabled = ref(true);
+    authStore.login(); // Llama al método login del store
 
-
-
-
-  }else{
+    // Redirigir al home o página principal después de login
+    router.push('/home');
+  } else {
     const alert = await alertController.create({
       header: 'Iniciar sesión',
       subHeader: 'Denegado',
-      message: 'Inicio de sesión invalido',
+      message: 'Inicio de sesión inválido',
       buttons: ['Bueno'],
     });
     await alert.present();
   }
-      user.value = '';
-      password.value = '';
-}
 
+  // Limpiar los campos de entrada
+  user.value = '';
+  password.value = '';
+};
 </script>
 
 <style scoped>

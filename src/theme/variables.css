@@ -12,7 +12,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-background: #ffffff; /* Fondo blanco */
     --ion-button-background: #3880ff; /* Fondo de botón primario */
     --ion-text-color: #000000; /* Color de texto general */
-    --ion-input-background: #f4f5f8; /* Fondo de los campos de entrada */
-    --ion-toolbar-background: #e2e2e2; /* Fondo de la barra de herramientas */
-    --ion-item-background: #f4f5f8; /* Fondo de los elementos de lista */
+    --ion-input-background: #ffffff; /* Fondo de los campos de entrada */
+    --ion-toolbar-background: #a39e9e; /* Fondo de la barra de herramientas */
+    --ion-item-background: hsl(0, 0%, 95%); /* Fondo de los elementos de lista */
 }
