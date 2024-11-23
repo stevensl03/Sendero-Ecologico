@@ -15,19 +15,21 @@
         <div id="container">
 
         </div>
+
+
+        <TabsComponent />
       </ion-content>
     </ion-page>
   </template>
   
-  <script setup lang="ts">
-    import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton, } from '@ionic/vue';
+<script setup lang="ts">
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonMenuButton, } from '@ionic/vue';
 
 
 
+</script>
 
-  </script>
-  
-  <style scoped>
-  
-   
-  </style>
+<style scoped>
+
+
+</style>

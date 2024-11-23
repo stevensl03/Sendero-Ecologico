@@ -1,35 +1,36 @@
 <template>
   <ion-app>
     <ion-split-pane content-id="main-content">
-        <ion-menu side="start" menu-id="main" content-id="main-content" >
+      <ion-menu side="start" menu-id="main" content-id="main-content">
+        <ion-content>
+          <ion-list id="inbox-list">
+            <ion-list-header>Sendero Ecológico</ion-list-header>
+            <ion-note>Barra de navegación</ion-note>
 
-          <ion-content>
-            <ion-list id="inbox-list">
-              <ion-list-header>Sendero Ecólogico</ion-list-header>
-              <ion-note>Barra de navegación</ion-note>
+            <!-- Menú -->
+            <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+                <ion-icon v-if="!p.image" aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+                <img v-else :src="p.image" alt="icon image" slot="start" style="width: 24px; height: 24px;" />
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
 
-              <!-- Menú -->
-              <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-                <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                    <ion-icon v-if="!p.image"  aria-hidden="true" slot="start"  :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
-                    <img v-else :src="p.image" alt="icon image" slot="start"  style="width: 24px; height: 24px;" />
-                    <ion-label>{{ p.title }}</ion-label>
-                </ion-item>
-              </ion-menu-toggle>
+            <!-- Botón de Cerrar Sesión -->
+            <ion-button @click="logout" expand="full" color="danger" v-if="authStore.isAuthenticated  == true"> Cerrar Sesión </ion-button>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
 
-              <!-- Botón de Cerrar Sesión -->
-              <ion-button @click="logout" expand="full" color="danger" v-if="authStore.isAuthenticated  == true"> Cerrar Sesión </ion-button>
-            </ion-list>
-
-
-
-          </ion-content>
-
-        </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
+
+      <!-- Aquí es donde colocas el componente de las pestañas -->
+
     </ion-split-pane>
+ 
   </ion-app>
 </template>
+
 
 <script setup lang="ts">
 import {
@@ -152,6 +153,9 @@ const path = window.location.pathname.split('folder/')[1];
 if (path !== undefined) {
   selectedIndex.value = appPages.value.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
 }
+
+
+
 </script>
 
 
@@ -265,5 +269,7 @@ ion-menu.ios ion-list-header {
   ion-menu.ios ion-list-header {
     font-size: 34px; /* Tamaño más pequeño en pantallas pequeñas */
   }
+
+
 }
 </style>

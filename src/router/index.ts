@@ -38,6 +38,17 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
+    path: '/icons',
+    name: 'Icons',
+    component: () => import ('@/views/IconsPage.vue')
+  },
+
+  {
+    path: '/stations/:id', 
+    name: 'StationsPage',
+    component: () => import('../views/StationsPage.vue'),
+  },  
+  {
     path: '/floraInfo',
     name: 'FloraInfo',
     component: () => import ('../views/FloraInfoPage.vue')

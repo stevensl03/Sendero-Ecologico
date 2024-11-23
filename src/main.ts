@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router';
 
 import { createPinia } from 'pinia';
+import TabsComponent from './components/TabsComponent.vue';
+
 
 import { IonicVue } from '@ionic/vue';
 
@@ -39,8 +41,10 @@ import '@ionic/vue/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+
+
 
 // Registra los componentes nativos
 defineCustomElements(window);
@@ -50,7 +54,10 @@ const app = createApp(App)
   .use(IonicVue)
   .use(router)
   .use(createPinia()); 
+  
 
 router.isReady().then(() => {
+  app.component('TabsComponent', TabsComponent);
+
   app.mount('#app');
 });

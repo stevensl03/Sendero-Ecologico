@@ -8,7 +8,10 @@
           <ion-title>Información de la Fauna</ion-title>
         </ion-toolbar>
       </ion-header>
+      <ion-content>
 
+      </ion-content>
+      <TabsComponent />
     </ion-page>
   </template>
   

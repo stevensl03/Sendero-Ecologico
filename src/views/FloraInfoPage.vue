@@ -9,6 +9,7 @@
         </ion-toolbar>
       </ion-header>
 
+      <TabsComponent />
     </ion-page>
   </template>
   
