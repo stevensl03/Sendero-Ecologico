@@ -46,7 +46,7 @@
                   <ion-button type="submit" expand="block" color="success" class="custom-button">
                     Iniciar Sesión
                   </ion-button>
-                  <ion-button expand="block" color="primary" fill="outline" class="custom-button" ion-button @click="presentAlert">
+                  <ion-button expand="block" color="primary" fill="outline" class="custom-button" ion-button > <!- @click="presentAlert"->
                     Iniciar como Invitado
                   </ion-button>
                   
@@ -62,6 +62,9 @@
     </ion-content>
   </ion-page>
 </template>
+
+
+
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonItem, IonLabel, IonInput, IonButton, IonAlert, alertController} from '@ionic/vue';
@@ -104,6 +107,9 @@ const onSubmit = async () => {
   password.value = '';
 };
 </script>
+
+
+
 
 <style scoped>
 /* Imagen del logo */

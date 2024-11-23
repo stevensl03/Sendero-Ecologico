@@ -5,8 +5,8 @@
 
           <ion-content>
             <ion-list id="inbox-list">
-              <ion-list-header>Sendero Ecologico</ion-list-header>
-              <ion-note>Barra de navegacion</ion-note>
+              <ion-list-header>Sendero Ecólogico</ion-list-header>
+              <ion-note>Barra de navegación</ion-note>
 
               <!-- Menú -->
               <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">

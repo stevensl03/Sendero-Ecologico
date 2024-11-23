@@ -18,9 +18,11 @@
           <ion-col size="12" class="avatar-container">
             <div class="avatar-wrapper">
               <div class="avatar-placeholder"></div>
-              <ion-button color="danger" class="add-photo-btn" fill="solid">
-                <ion-icon slot="icon-only" name="add"></ion-icon>
-              </ion-button>
+              <ion-fab>
+                <ion-fab-button color="danger" class="add-photo-btn" fill="solid">
+                  <ion-icon slot="icon-only" name="add"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
             </div>
           </ion-col>
         </ion-row>
@@ -42,7 +44,7 @@
               <label>Teléfono:</label>
               <ion-input placeholder="123-456-7890" disabled></ion-input>
               <ion-button fill="clear" class="edit-btn">
-                <ion-icon slot="icon-only" name="create-outline" color="success"></ion-icon>
+                <ion-icon slot="icon-only" name="create-outline" color="success" :icon="add"></ion-icon>
               </ion-button>
             </div>
           </ion-col>
@@ -53,8 +55,11 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonContent, IonToolbar, IonTitle, IonGrid, IonRow, IonCol, IonInput, IonButton, IonIcon } from '@ionic/vue';
+import { IonPage, IonHeader, IonContent, IonToolbar, IonTitle, IonGrid, IonRow, IonCol, IonInput, IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/vue';
 import { add, createOutline, arrowBackOutline } from 'ionicons/icons';
+import { defineComponent } from 'vue';
+
+
 </script>
 
 <style scoped>

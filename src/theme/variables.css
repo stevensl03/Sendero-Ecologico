@@ -1,34 +1,52 @@
 :root {
-    /* Colores principales */
-    --ion-color-primary: #4a90e2; /* Azul moderno */
-    --ion-color-primary-contrast: #ffffff; /* Contraste blanco */
-    --ion-color-secondary: #50e3c2; /* Verde agua */
-    --ion-color-tertiary: #ff7f50; /* Coral */
-    --ion-color-success: #28a745; /* Verde éxito */
-    --ion-color-warning: #ffc107; /* Amarillo advertencia */
-    --ion-color-danger: #e63946; /* Rojo vibrante */
-    --ion-color-dark: #2c3e50; /* Azul oscuro para texto */
-    --ion-color-medium: #a0a0a0; /* Neutro intermedio */
-    --ion-color-light: #f9f9f9; /* Fondo claro */
-  
-    /* Fondo y texto */
-    --ion-color-background: #f5f6fa; /* Gris claro para fondo general */
-    --ion-text-color: #4a4a4a; /* Color principal del texto */
-    --ion-toolbar-background: #4a90e2; /* Barra de herramientas en azul primario */
-    --ion-toolbar-color: #ffffff; /* Color de texto en la barra */
-    
-    /* Botones */
-    --ion-button-background: var(--ion-color-primary); /* Fondo de botones */
-    --ion-button-color: var(--ion-color-primary-contrast); /* Color del texto en botones */
-  
-    /* Input y elementos */
-    --ion-input-background: #ffffff; /* Fondo blanco en inputs */
-    --ion-item-background: #ffffff; /* Fondo blanco en elementos de lista */
-    --ion-item-color: #4a4a4a; /* Texto principal en elementos */
-    --ion-item-border-color: #dcdde1; /* Borde sutil para elementos */
-  
-    /* Sombras y bordes */
-    --ion-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para botones y tarjetas */
-    --ion-border-radius: 12px; /* Bordes redondeados */
-  }
-  
+  /* Colores principales */
+  --ion-color-primary: #4caf50; /* Verde naturaleza */
+  --ion-color-primary-contrast: #ffffff; /* Contraste blanco */
+  --ion-color-secondary: #8bc34a; /* Verde claro */
+  --ion-color-tertiary: #ff9800; /* Naranja tierra */
+  --ion-color-success: #388e3c; /* Verde éxito profundo */
+  --ion-color-warning: #ffca28; /* Amarillo cálido */
+  --ion-color-danger: #d32f2f; /* Rojo oscuro */
+  --ion-color-dark: #2e3b26; /* Verde oscuro natural */
+  --ion-color-medium: #a1887f; /* Marrón neutro */
+  --ion-color-light: #e8f5e9; /* Verde muy claro */
+
+  /* Colores adicionales */
+  --ion-color-forest: #2e7d32; /* Verde bosque */
+  --ion-color-earth: #795548; /* Marrón tierra */
+  --ion-color-sky: #4fc3f7; /* Azul cielo */
+  --ion-color-water: #81d4fa; /* Azul agua */
+  --ion-color-sun: #ffd54f; /* Amarillo brillante */
+  --ion-color-leaf: #aed581; /* Verde hoja */
+  --ion-color-flower: #e91e63; /* Rosa flor */
+
+  /* Fondo y texto */
+  --ion-color-background: #f1f8e9; /* Verde claro para fondo general */
+  --ion-text-color: #3e2723; /* Marrón oscuro para texto principal */
+  --ion-toolbar-background: #4caf50; /* Barra de herramientas en verde */
+  --ion-toolbar-color: #ffffff; /* Texto blanco en barra */
+
+  /* Botones */
+  --ion-button-background: var(--ion-color-primary); /* Verde principal */
+  --ion-button-color: var(--ion-color-primary-contrast); /* Texto blanco */
+  --ion-button-hover: var(--ion-color-secondary); /* Verde claro en hover */
+
+  /* Inputs y elementos */
+  --ion-input-background: #ffffff; /* Fondo blanco para inputs */
+  --ion-input-border-color: #c8e6c9; /* Borde verde claro */
+  --ion-item-background: #ffffff; /* Fondo blanco para listas */
+  --ion-item-color: var(--ion-text-color); /* Texto marrón oscuro */
+  --ion-item-border-color: #d7ccc8; /* Borde sutil marrón claro */
+
+  /* Sombras y bordes */
+  --ion-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra ligera */
+  --ion-border-radius: 16px; /* Bordes más redondeados */
+
+  /* Elementos específicos del sendero */
+  --trail-path-color: #6d4c41; /* Marrón sendero */
+  --trail-highlight-color: #ff9800; /* Naranja para zonas destacadas */
+  --trail-marker-color: #4caf50; /* Verde para puntos de referencia */
+  --trail-sunlight-feature: #ffd54f; /* Amarillo brillante para zonas soleadas */
+  --trail-water-feature: #81d4fa; /* Azul agua para lagos o ríos */
+  --trail-rock-feature: #9e9e9e; /* Gris para representar piedras */
+}

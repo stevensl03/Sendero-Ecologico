@@ -10,7 +10,45 @@
             </ion-grid>
         </ion-toolbar>
       </ion-header>
+      <ion-content>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Explora y Conecta: Inscríbete en Nuestra Próxima Actividad Ecológica</ion-card-title>
+            <ion-card-subtitle>¡Únete a la aventura! 🌿 Inscríbete ahora en nuestra actividad y vive una experiencia única en el corazón del sendero ecológico. Descubre, aprende y conecta con la naturaleza. ¡Te esperamos!</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
 
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-thumbnail slot="start">
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-thumbnail slot="start">
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </ion-thumbnail>
+                <ion-label>Item</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
     </ion-page>
   </template>
   
@@ -19,6 +57,11 @@
   </script>
   
   <style scoped>
+
+ion-item {
+  --padding-start: 0;
+}
+
 /* Botón de navegación "Atrás" */
 #BackButton {
   text-decoration: none;
