@@ -43,6 +43,7 @@ import '@ionic/vue/css/palettes/dark.system.css';
 import './theme/variables.css';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
+//conexion con la backend
 
 
 

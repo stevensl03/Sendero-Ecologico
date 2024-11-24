@@ -9,8 +9,10 @@ const config: CapacitorConfig = {
       resize: 'native', // Asegura que el contenido se ajuste correctamente al teclado
       style: 'dark',
     }
+  },
+  server: {
+    url: 'http://192.168.0.25:8080', // Dirección del backend
   }
 };
 
 export default config;
-

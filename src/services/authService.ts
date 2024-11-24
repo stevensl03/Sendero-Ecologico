@@ -1,13 +1,23 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://<tu-backend-url>:<puerto>/api/auth';
+const API_URL = 'http://192.168.0.25:8080/api/auth';
 
-export const registerUser = async (userData: { email: string; password: string }) => {
-  const response = await axios.post(`${BASE_URL}/register`, userData);
-  return response.data;
+export const authService = {
+  //registro
+  async register(user: { name: string; email: string; password: string, role: string}) {
+    return await axios.post(`${API_URL}/register`, user);
+  },
+  //login
+  async login(credentials: { email: string; password: string }) {
+    return await axios.post(`${API_URL}/login`, credentials);
+  },
 };
 
-export const loginUser = async (credentials: { email: string; password: string }) => {
-  const response = await axios.post(`${BASE_URL}/login`, credentials);
-  return response.data; // Debería contener el JWT
-};
+// Agregar el interceptor de Axios para incluir el token en los headers
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token'); // Obtiene el token de localStorage
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`; // Añade el token al header
+  }
+  return config;
+});

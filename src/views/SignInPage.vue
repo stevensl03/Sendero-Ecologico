@@ -32,18 +32,18 @@
               <h1>Bienvenido al Sendero Ecológico</h1>
 
               <!-- Formulario -->
-              <form @submit.prevent="onSubmit">
+              <form @submit.prevent="signIn">
                 <ion-item>
-                  <ion-label position="stacked">Nombre de Usuario</ion-label>
-                  <ion-input type="text" placeholder="Escribe tu nombre" required v-model="user"></ion-input>
+                  <ion-label position="stacked">Correo Electrónico</ion-label>
+                  <ion-input type="email" placeholder="Escribe tu nombre" required v-model="credentials.email"></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label position="stacked">Contraseña</ion-label>
-                  <ion-input type="password" placeholder="Escribe tu contraseña" required v-model="password"></ion-input>
+                  <ion-input type="password" placeholder="Escribe tu contraseña" required v-model="credentials.password"></ion-input>
                 </ion-item>
                 <!-- Botones -->
                 <div class="buttons-container ion-align-items-center ion-justify-content-center">
-                  <ion-button type="submit" expand="block" color="success" class="custom-button">
+                  <ion-button  type="submit" expand="block" color="success" class="custom-button">
                     Iniciar Sesión
                   </ion-button>
                   <ion-button expand="block" color="primary" fill="outline" class="custom-button" ion-button > <!- @click="presentAlert"->
@@ -72,13 +72,38 @@ import { defineComponent, ref, reactive} from 'vue';
 import { useAuthStore } from '../stores/auth'
 import { defineStore } from 'pinia';
 import { useRouter } from 'vue-router';
+import { authService } from '@/services/authService';
+
 
 const user = ref('');
 const password = ref('');
 const authStore = useAuthStore();
 const router = useRouter();
 
-const onSubmit = async () => {
+const credentials = ref({
+  email: '',
+  password: '',
+});
+
+const signIn = async () => {
+
+  try {
+    const response = await authService.login(credentials.value);
+    const token = response.data.token; // Asegúrate de que el backend devuelve el token
+    alert('Inicio de sesión exitoso');
+    localStorage.setItem('token', token); // Guarda el token en localStorage
+    router.push('/home'); // Redirige a la página principal
+  } catch (error: any) {
+    const errorMessage =
+      error.response?.data?.message || 'Error al iniciar sesión';
+    alert(errorMessage);
+  }
+
+}; 
+
+
+
+/*const onSubmit = async () => {
   if (user.value === 'admin' && password.value === '123') {
     const alert = await alertController.create({
       header: 'Iniciar sesión',
@@ -105,7 +130,7 @@ const onSubmit = async () => {
   // Limpiar los campos de entrada
   user.value = '';
   password.value = '';
-};
+};*/
 </script>
 
 

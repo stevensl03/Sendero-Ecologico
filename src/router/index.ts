@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
+import RegisterPage from '@/views/RegisterPage.vue'; // Ruta al componente
+import LoginPage from '@/views/SignInPage.vue'; // Ruta al componente de login
+
 
 const routes: Array<RouteRecordRaw> = [
   {

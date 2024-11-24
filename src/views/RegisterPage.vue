@@ -18,6 +18,7 @@
                     </ion-col>
                 </ion-row>
 
+                
                 <!-- Formulario de inicio de sesión -->
                 <ion-row class="ion-justify-content-center ion-align-items-center">
                 <ion-col size="12" size-md="6" class="ion-text-center">
@@ -30,18 +31,18 @@
                     <h1>Crea tu cuenta</h1>
 
                     <!-- Formulario -->
-                    <form @submit.prevent="onSubmit">
+                    <form @submit.prevent="register">
                         <ion-item>
-                        <ion-label position="stacked" >Nombre de Usuario</ion-label>
-                        <ion-input type="text" placeholder="Escribe tu nombre" required v-model="user"></ion-input>
+                          <ion-label position="stacked" >Nombre de Usuario</ion-label>
+                          <ion-input type="text" placeholder="Escribe tu nombre" required v-model="user.name"></ion-input>
                         </ion-item>
                         <ion-item>
-                        <ion-label position="stacked">Correo Electronico</ion-label>
-                        <ion-input type="email" placeholder="Escribe tu correo" required v-model="email"></ion-input>
+                          <ion-label position="stacked">Correo Electronico</ion-label>
+                          <ion-input type="email" placeholder="Escribe tu correo" required v-model="user.email"></ion-input>
                         </ion-item>
                         <ion-item>
-                        <ion-label position="stacked">Contraseña</ion-label>
-                        <ion-input type="password" placeholder="Escribe tu contraseña" required v-model="password"></ion-input>
+                          <ion-label position="stacked">Contraseña</ion-label>
+                          <ion-input type="password" placeholder="Escribe tu contraseña" required v-model="user.password" expand="full"></ion-input>
                         </ion-item>
                         <!-- Botones -->
                         <div class="buttons-container ion-align-items-center ion-justify-content-center">
@@ -64,13 +65,39 @@
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonCard, IonItem, IonLabel, IonInput, IonButton, IonAlert, alertController} from '@ionic/vue';
 import { defineComponent, ref } from 'vue';
+import { authService } from '@/services/authService';
+import { sync } from 'ionicons/icons';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
-const user = ref();
+
+const name = ref();
 const email = ref(); 
 const password = ref();
 
+const user = ref({
+  name: '',
+  email: '',
+  password: '',
+  role: 'INSTITUCIONAL',
+});
 
-const onSubmit = async() =>{
+
+const register = async () => {
+  try {
+    await authService.register(user.value);
+    alert('Registro exitoso');
+    router.push('/signIn'); // Redirige al login después de registrarse
+  } catch (error) {
+    console.error(error);
+    alert('Error al registrar: ');
+  }
+
+}
+
+
+
+/*const onSubmit = async() =>{
       // Usar alertController de Ionic para mostrar la alerta
       const alert = await alertController.create({
         header: 'Información del Usuario',
@@ -80,10 +107,10 @@ const onSubmit = async() =>{
       await alert.present();
 
       // Borrar la información después de mostrar la alerta
-      user.value = '';
+      username.value = '';
       email.value = '';
       password.value = '';
-}
+}*/
 
 </script>
 
