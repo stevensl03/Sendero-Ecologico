@@ -85,21 +85,30 @@ const credentials = ref({
   password: '',
 });
 
-const signIn = async () => {
 
+const signIn = async () => {
   try {
     const response = await authService.login(credentials.value);
-    const token = response.data.token; // Asegúrate de que el backend devuelve el token
-    alert('Inicio de sesión exitoso');
-    localStorage.setItem('token', token); // Guarda el token en localStorage
-    router.push('/home'); // Redirige a la página principal
-  } catch (error: any) {
-    const errorMessage =
-      error.response?.data?.message || 'Error al iniciar sesión';
-    alert(errorMessage);
-  }
+    const token = response.data.token;
 
-}; 
+    await alertController.create({
+      header: 'Inicio de Sesión Válido',
+      message: 'Bienvenido',
+      buttons: ['Ok'],
+    }).then(alert => alert.present());
+
+    authStore.setToken(token); // Guarda el token en el estado global
+    router.push('/home');
+  } catch (error: any) {
+    const errorMessage = error.response?.data?.message || 'Error al iniciar sesión';
+
+    await alertController.create({
+      header: 'Error',
+      message: errorMessage,
+      buttons: ['Ok'],
+    }).then(alert => alert.present());
+  }
+};
 
 
 

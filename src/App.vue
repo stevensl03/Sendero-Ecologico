@@ -17,7 +17,7 @@
             </ion-menu-toggle>
 
             <!-- Botón de Cerrar Sesión -->
-            <ion-button @click="logout" expand="full" color="danger" v-if="token"> Cerrar Sesión </ion-button>
+            <ion-button @click="logout" expand="full" color="danger" v-if= authStore.token > Cerrar Sesión </ion-button>
           </ion-list>
         </ion-content>
       </ion-menu>
@@ -59,15 +59,15 @@ import {
   personOutline,
 } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
-
+import { useAuthStore } from '@/stores/auth';
 
 const token = localStorage.getItem('token');
+const authStore = useAuthStore();
 const router = useRouter();
 
-// Handle logout
 const logout = async () => {
-  localStorage.removeItem('token');//cerrar secion
-  router.push('/signIn'); // Redirect to login page
+  authStore.clearToken(); // Limpia el token del estado global
+  router.push('/signIn'); // Redirige a la página de inicio de sesión
 };
 
 // Reactive appPages based on authentication
@@ -75,7 +75,7 @@ const appPages = ref<any[]>([]);
 
 // Watch for changes in authStore.isAuthenticated and update appPages
 watchEffect(() => {
-  if (token) {
+  if (authStore.token) {
     appPages.value = [
       {
         title: 'Perfil',
