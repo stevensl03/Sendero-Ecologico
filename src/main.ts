@@ -6,6 +6,8 @@ import { createPinia } from 'pinia';
 
 import { IonicVue } from '@ionic/vue';
 
+import 'leaflet/dist/leaflet.css';
+
 //mas iconos
 import '@fortawesome/fontawesome-free/css/all.css';
 

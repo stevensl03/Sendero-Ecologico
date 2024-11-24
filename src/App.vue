@@ -1,31 +1,20 @@
 <template>
   <ion-app>
     <ion-split-pane content-id="main-content">
-        <ion-menu side="start" menu-id="main" content-id="main-content" >
-
-          <ion-content>
-            <ion-list id="inbox-list">
-              <ion-list-header>Sendero Ecologico</ion-list-header>
-              <ion-note>Barra de navegacion</ion-note>
-
-              <!-- Menú -->
-              <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-                <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                    <ion-icon v-if="!p.image"  aria-hidden="true" slot="start"  :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
-                    <img v-else :src="p.image" alt="icon image" slot="start"  style="width: 24px; height: 24px;" />
-                    <ion-label>{{ p.title }}</ion-label>
-                </ion-item>
-              </ion-menu-toggle>
-
-              <!-- Botón de Cerrar Sesión -->
-              <ion-button @click="logout" expand="full" color="danger" v-if="authStore.isAuthenticated  == true"> Cerrar Sesión </ion-button>
-            </ion-list>
-
-
-
-          </ion-content>
-
-        </ion-menu>
+      <ion-menu side="start" menu-id="main" content-id="main-content">
+        <ion-content>
+          <ion-list>
+            <ion-list-header>Sendero Ecológico</ion-list-header>
+            <ion-note>Barra de navegación</ion-note>
+            <ion-menu-toggle auto-hide="false" v-for="(page, index) in appPages" :key="index">
+              <ion-item :router-link="page.url" lines="none">
+                <ion-icon :ios="page.iosIcon" :md="page.mdIcon" slot="start"></ion-icon>
+                <ion-label>{{ page.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
       <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>
   </ion-app>
