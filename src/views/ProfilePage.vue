@@ -59,6 +59,19 @@ import { IonPage, IonHeader, IonContent, IonToolbar, IonTitle, IonGrid, IonRow, 
 import { add, createOutline, arrowBackOutline } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 
+import { useAuthStore } from '@/stores/auth';
+const authStore = useAuthStore();
+const userName = authStore.user?.name;
+const userEmail = authStore.user?.email;
+const userRole = authStore.user?.role;
+const userId = authStore.user?.id;
+
+
+
+if (authStore.user) {
+  alert(`Nombre del usuario: ${authStore.user.name}`);
+}
+
 
 </script>
 

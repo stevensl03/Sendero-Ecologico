@@ -8,6 +8,7 @@ import TabsComponent from './components/TabsComponent.vue';
 
 import { IonicVue } from '@ionic/vue';
 
+
 //mas iconos
 import '@fortawesome/fontawesome-free/css/all.css';
 

@@ -10,9 +10,7 @@ const config: CapacitorConfig = {
       style: 'dark',
     }
   },
-  server: {
-    url: 'http://192.168.0.25:8080', // Dirección del backend
-  }
+
 };
 
 export default config;

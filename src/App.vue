@@ -66,7 +66,7 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 const logout = async () => {
-  authStore.clearToken(); // Limpia el token del estado global
+  authStore.clearAuth(); // Limpia el token del estado global
   router.push('/signIn'); // Redirige a la página de inicio de sesión
 };
 

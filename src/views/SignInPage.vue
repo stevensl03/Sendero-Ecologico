@@ -74,12 +74,13 @@ import { defineStore } from 'pinia';
 import { useRouter } from 'vue-router';
 import { authService } from '@/services/authService';
 
-
-const user = ref('');
+//variables
+const email = ref('');
 const password = ref('');
 const authStore = useAuthStore();
 const router = useRouter();
 
+//guardar credenciales
 const credentials = ref({
   email: '',
   password: '',
@@ -88,58 +89,34 @@ const credentials = ref({
 
 const signIn = async () => {
   try {
+    // push backend  
     const response = await authService.login(credentials.value);
-    const token = response.data.token;
-
+    //alert(mensaje en pantalla)
     await alertController.create({
       header: 'Inicio de Sesión Válido',
       message: 'Bienvenido',
       buttons: ['Ok'],
     }).then(alert => alert.present());
 
-    authStore.setToken(token); // Guarda el token en el estado global
+    //enviar informacion a stores/auth.ts
+    authStore.setUser(response.data.user);
+    authStore.setToken(response.data.token); // Guarda el token en el estado global
+    //ir al inicio
     router.push('/home');
   } catch (error: any) {
+    //mensaje de error
     const errorMessage = error.response?.data?.message || 'Error al iniciar sesión';
-
     await alertController.create({
       header: 'Error',
       message: errorMessage,
       buttons: ['Ok'],
     }).then(alert => alert.present());
   }
+  //resetear texto del input
+  credentials.value = { email: '', password: '' };
+
 };
 
-
-
-/*const onSubmit = async () => {
-  if (user.value === 'admin' && password.value === '123') {
-    const alert = await alertController.create({
-      header: 'Iniciar sesión',
-      subHeader: 'Acceso',
-      message: 'Inicio de sesión válido',
-      buttons: ['Bueno'],
-    });
-    await alert.present();
-
-    authStore.login(); // Llama al método login del store
-
-    // Redirigir al home o página principal después de login
-    router.push('/home');
-  } else {
-    const alert = await alertController.create({
-      header: 'Iniciar sesión',
-      subHeader: 'Denegado',
-      message: 'Inicio de sesión inválido',
-      buttons: ['Bueno'],
-    });
-    await alert.present();
-  }
-
-  // Limpiar los campos de entrada
-  user.value = '';
-  password.value = '';
-};*/
 </script>
 
 
